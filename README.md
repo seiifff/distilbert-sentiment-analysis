@@ -2,6 +2,11 @@
   <img src="banner.png" alt="Sentiment Analysis Banner">
 </p>
 
+# DistilBERT Sentiment Analysis
+
+Fine-tunes **DistilBERT** (`distilbert-base-uncased`) with Hugging Face Transformers to classify movie reviews as **positive** or **negative**. Training uses the Hugging Face `Trainer` with an 80/20 train/test split, and the model is evaluated with accuracy and F1 score.
+
+
 
 ## 🚀 Getting Started
 
@@ -10,8 +15,8 @@ Follow these steps to set up and run the sentiment analysis project locally:
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/seiifff/distilbert-sentiment-analysis1.git
-cd distilbert-sentiment-analysis1
+git clone https://github.com/seiifff/distilbert-sentiment-analysis.git
+cd distilbert-sentiment-analysis
 ```
 
 ### 2️⃣ Install Dependencies
@@ -22,25 +27,13 @@ Make sure you have Python 3.8+ and run:
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Download or Train the Model
-
-If you have not already saved the model:
-
-```python
-# Run in notebook or Python shell after training
-import torch
-torch.save(model.state_dict(), "sentiment_model.pth")
-```
-
-Make sure `sentiment_model.pth` is in the project root directory.
-
-### 4️⃣ Run the Gradio App
+### 3️⃣ Train and evaluate
 
 ```bash
-python gradio_sentiment_app.py
+python sentiment_analysis.py
 ```
 
-Once running, Gradio will give you a local and public URL to access the web interface.
+This fine-tunes DistilBERT on `train.csv` (columns `review`, `sentiment`), evaluates accuracy and F1 on the held-out 20%, saves the model to `sentiment_model/`, and includes a `predict_sentiment(text)` helper. You can also run everything step by step in `DistilBERT_Sentiment_Analysis_FIXED.ipynb`.
 
 ---
 
@@ -68,6 +61,6 @@ Positive 😊
 
 ## 🔗 Connect with Me
 
-- [LinkedIn](https://www.linkedin.com/in/seif-ferooz/)
+- [LinkedIn](https://www.linkedin.com/in/seif-ferooz-/)
 - [GitHub Portfolio](https://github.com/seiifff)
 
